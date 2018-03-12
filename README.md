@@ -1,5 +1,6 @@
 # odu-cs250
 Projects for my CS250 course - Fall 2017
+
 All projects in this directory is made using C++
 
 This repository includes all the project and assignments created in my CS250 course during my Sophomore Year of College at Old Dominion University. 
