@@ -1,0 +1,198 @@
+playGame {
+// Define variables
+*********************************************************************************************************************************
+// Define variables
+// Define placeholder variables (used for profiles below)
+// Start while loop; continues as long as neither players (red or black) have reached 3 points
+// While loop that asks user to input new location
+// end of validating move while loop
+// print the board
+// go back to the beginning of 3 points while loop; repeat previous process
+// Red or black reaches 3 points
+// End game. 
+*********************************************************************************************************************************
+// Define variables
+// * turn bools, win bool, invalid bool, jump bool
+// Define placeholder variables (used for profiles below)
+// Start while loop; continues as long as neither players (red or black) have reached 3 points
+// While loop that asks user to input new location
+// end of validating move while loop
+// print the board
+// go back to the beginning of 3 points while loop; repeat previous process
+// Red or black reaches 3 points
+// End game. 
+*********************************************************************************************************************************
+// Define variables
+// * turn bools, win bool, invalid bool, jump bool
+// Define placeholder variables (used for profiles below)
+// * current piece X Y, new location X Y
+// * current player, current piece names (1 and 2), and opponent pieces (1 and 2)
+// Start while loop; continues as long as neither players (red or black) have reached 3 points
+// While loop that asks user to input new location
+// end of validating move while loop
+// print the board
+// go back to the beginning of 3 points while loop; repeat previous process
+// Red or black reaches 3 points
+// End game. 
+*********************************************************************************************************************************
+// Define variables
+// * turn bools, win bool, invalid bool, jump bool
+// Define placeholder variables (used for profiles below)
+// * current piece X Y, new location X Y
+// * current player, current piece names (1 and 2), and opponent pieces (1 and 2)
+// Start while loop; continues as long as neither players (red or black) have reached 3 points
+// While loop that asks user to input new location
+// end of validating move while loop
+// print the board
+// go back to the beginning of 3 points while loop; repeat previous process
+// Red or black reaches 3 points
+// End game. 
+*********************************************************************************************************************************
+// Define variables
+// * turn bools, win bool, invalid bool, jump bool
+// Define placeholder variables (used for profiles below)
+// * current piece X Y, new location X Y
+// * current player, current piece names (1 and 2), and opponent pieces (1 and 2)
+// Start while loop; continues as long as neither players (red or black) have reached 3 points
+// * if red has already went, black goes
+// ** Setup black profile 
+// *** changes player, pieces, and opponent pieces names
+// *** flips bool, red false, black true
+// * if red has not went, red goes
+// ** Setup red profile
+// *** changes player, pieces, and opponent pieces names
+// *** flips bool, red true, black false
+// * Ask player to enter piece to move
+// ** player enters X Y cord
+// ** then check if X Y cord is a valid piece for this player
+// *** if not, then require new input
+// * Set bools for while loop
+// ** invalid is set true, resets while loop for next turn
+// ** jump is set false, resets point addition for next turn
+// While loop that asks user to input new location
+// end of validating move while loop
+// print the board
+// go back to the beginning of 3 points while loop; repeat previous process
+// Red or black reaches 3 points
+// End game. 
+*********************************************************************************************************************************
+// Define variables
+// * turn bools, win bool, invalid bool, jump bool
+// Define placeholder variables (used for profiles below)
+// * current piece X Y, new location X Y
+// * current player, current piece names (1 and 2), and opponent pieces (1 and 2)
+// Start while loop; continues as long as neither players (red or black) have reached 3 points
+// * if red has already went, black goes
+// ** Setup black profile 
+// *** changes player, pieces, and opponent pieces names
+// *** flips bool, red false, black true
+// * if red has not went, red goes
+// ** Setup red profile
+// *** changes player, pieces, and opponent pieces names
+// *** flips bool, red true, black false
+// * Ask player to enter piece to move
+// ** player enters X Y cord
+// ** then check if X Y cord is a valid piece for this player
+// *** if not, then require new input
+// * Set bools for while loop
+// ** invalid is set true, resets while loop for next turn
+// ** jump is set false, resets point addition for next turn
+// While loop that asks user to input new location
+// * Ask player to input X Y of new location
+// ** Player can enter -1 -1 to skip turn
+// ** Run validMove function to ensure their move is valid
+// *** first check: checkPos to see if new location is empty
+// **** To check this I use the checkPos and check the location they entered, ensuring I get an output of two spaces.
+// *** second check: checkPos to ensure they are moving diagonally
+// **** To check this I make sure their new location does not have the same X or Y value of their original location
+// *** third check: checkPos to see if user is jumping
+// **** Detect jump
+// ***** old pos - new pos (x and y) equals two
+// ****** checkPos of averages of new and old X and Y and ensure its r2 and b2
+// ******* Successful then return jump true and return true
+// ****** repeat previous but with r1 and b1
+// ******* Successful then return jump true and return true
+// ****** else, if the numbers do not match on jump and letters are not opposite
+// ******* return false and error message
+// *** fourth check: checkPos to see if they are moving more than one space if they are not jumping
+// **** using the math absolute value of new minus old location (x or y) does not equal 1 
+// ***** returns false and error message
+// *** all pass: return true
+// * once validMove returns true
+// ** if determined whether its red or black's turn
+// *** set original new location to original piece information
+// *** set the original piece location to an empty space (0)
+// *** check if jump is true (if you recall, the validMove function modifies jump to true when user jumps)
+// **** if true, add point to which ever user
+// **** output point notification
+// *** define invalid to false to end loop
+// * if validMove returns false
+// ** return error message and while loop resets to beginning
+// end of validating move while loop
+// print the board
+// go back to the beginning of 3 points while loop; repeat previous process
+// Red or black reaches 3 points
+// End game. 
+*********************************************************************************************************************************
+// Define variables
+// * turn bools, win bool, invalid bool, jump bool
+// Define placeholder variables (used for profiles below)
+// * current piece X Y, new location X Y
+// * current player, current piece names (1 and 2), and opponent pieces (1 and 2)
+// Start while loop; continues as long as neither players (red or black) have reached 3 points
+// * if red has already went, black goes
+// ** Setup black profile 
+// *** changes player, pieces, and opponent pieces names
+// *** flips bool, red false, black true
+// * if red has not went, red goes
+// ** Setup red profile
+// *** changes player, pieces, and opponent pieces names
+// *** flips bool, red true, black false
+// * Ask player to enter piece to move
+// ** player enters X Y cord
+// ** then check if X Y cord is a valid piece for this player
+// *** if not, then require new input
+// * Set bools for while loop
+// ** invalid is set true, resets while loop for next turn
+// ** jump is set false, resets point addition for next turn
+// While loop that asks user to input new location
+// * Ask player to input X Y of new location
+// ** Player can enter -1 -1 to skip turn
+// ** Run validMove function to ensure their move is valid
+// *** first check: checkPos to see if new location is empty
+// **** To check this I use the checkPos and check the location they entered, ensuring I get an output of two spaces.
+// *** second check: checkPos to ensure they are moving diagonally
+// **** To check this I make sure their new location does not have the same X or Y value of their original location
+// *** third check: checkPos to see if user is jumping
+// **** Detect jump
+// ***** old pos - new pos (x and y) equals two
+// ****** checkPos of averages of new and old X and Y and ensure its r2 and b2
+// ******* Successful then return jump true and return true
+// ****** repeat previous but with r1 and b1
+// ******* Successful then return jump true and return true
+// ****** else, if the numbers do not match on jump and letters are not opposite
+// ******* return false and error message
+// *** fourth check: checkPos to see if they are moving more than one space if they are not jumping
+// **** using the math absolute value of new minus old location (x or y) does not equal 1 
+// ***** returns false and error message
+// *** all pass: return true
+// * once validMove returns true
+// ** if determined whether its red or black's turn
+// *** set original new location to original piece information
+// *** set the original piece location to an empty space (0)
+// *** check if jump is true (if you recall, the validMove function modifies jump to true when user jumps)
+// **** if true, add point to which ever user
+// **** output point notification
+// *** define invalid to false to end loop
+// * if validMove returns false
+// ** return error message and while loop resets to beginning
+// end of validating move while loop
+// print the board
+// go back to the beginning of 3 points while loop; repeat previous process
+// Red or black reaches 3 points
+// * Display points
+// * Display winner
+// End game. 
+*********************************************************************************************************************************
+
+}
