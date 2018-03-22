@@ -20,67 +20,67 @@ private:
     std::string blood_type;
 public:
     patient();
-    int Getid()
+    int getID()
     {
         return id;
     }
-    void Setid(int val)
+    void setID(int const& val)
     {
         id = val;
     }
-    int Getdoctor_id()
+    int getDoctorID()
     {
         return doctor_id;
     }
-    void Setdoctor_id(int val)
+    void setDoctorID(int const& val)
     {
         doctor_id = val;
     }
-    int Getrecord_id()
+    int getRecordID()
     {
         return record_id;
     }
-    void Setrecord_id(int val)
+    void setRecordID(int const& val)
     {
         record_id = val;
     }
-    std::string Getname()
+    std::string getName()
     {
         return name;
     }
-    void Setname(std::string val)
+    void setName(std::string const& val)
     {
         name = val;
     }
-    std::string Getphone()
+    std::string getPhone()
     {
         return phone;
     }
-    void Setphone(std::string val)
+    void setPhone(std::string const& val)
     {
         phone = val;
     }
-    char Getgender()
+    char getGender()
     {
         return gender;
     }
-    void Setgender(char val)
+    void setGender(char const& val)
     {
         gender = val;
     }
-    std::string Getemail()
+    std::string getEmail()
     {
         return email;
     }
-    void Setemail(std::string val)
+    void setEmail(std::string const& val)
     {
         email = val;
     }
-    std::string Getblood_type()
+    std::string getBloodType()
     {
         return blood_type;
     }
-    void Setblood_type(std::string val)
+    void setBloodType(std::string const& val)
     {
         blood_type = val;
     }

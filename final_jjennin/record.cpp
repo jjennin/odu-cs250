@@ -33,13 +33,13 @@ void add(recordList& rec, int patientID, int recordID)
     record temp;
     if(recordID < 1)
     {
-        temp.Setid(1);
+        temp.setID(1);
     }
     else
     {
-        temp.Setid(recordID);
+        temp.setID(recordID);
     }
-    temp.Setpatient_id(patientID);
+    temp.setPatientID(patientID);
     rec.push_back(temp);
 }
 // search all records
@@ -47,7 +47,7 @@ int searchEntries(recordList& rec, int patientID)
 {
     for(unsigned i = 0; i < rec.size(); i++)
     {
-        if(patientID == rec[i].Getpatient_id())
+        if(patientID == rec[i].getPatientID())
         {
             return i;
         }

@@ -17,59 +17,59 @@ private:
     char AM_PM;
 public:
     Date_Time();
-    int Getid()
+    int getID()
     {
         return id;
     }
-    void Setid(int val)
+    void setID(int const& val)
     {
         id = val;
     }
-    int Getday()
+    int getDay()
     {
         return day;
     }
-    void Setday(int val)
+    void setDay(int const& val)
     {
         day = val;
     }
-    int Getmonth()
+    int getMonth()
     {
         return month;
     }
-    void Setmonth(int val)
+    void setMonth(int const& val)
     {
         month = val;
     }
-    int Getyear()
+    int getYear()
     {
         return year;
     }
-    void Setyear(int val)
+    void setYear(int const& val)
     {
         year = val;
     }
-    int Gethour()
+    int getHour()
     {
         return hour;
     }
-    void Sethour(int val)
+    void setHour(int const& val)
     {
         hour = val;
     }
-    int Getminute()
+    int getMinute()
     {
         return minute;
     }
-    void Setminute(int val)
+    void setMinute(int const& val)
     {
         minute = val;
     }
-    char GetAM_PM()
+    char getAMPM()
     {
         return AM_PM;
     }
-    void SetAM_PM(char val)
+    void setAMPM(char const& val)
     {
         AM_PM = val;
     }

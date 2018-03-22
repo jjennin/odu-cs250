@@ -45,7 +45,7 @@ void patient::add(doctorList doc)
         loc = searchEntries(doc, "search");
         if(loc != -1)
         {
-            doctor_id = doc[loc].Getid();
+            doctor_id = doc[loc].getID();
             cout << "Assigned doctor ID to patient" << endl;
         }
     }
@@ -98,9 +98,9 @@ void patient::display(doctorList doc)
     string docName;
     for(unsigned i = 0; i < doc.size(); i++)
     {
-        if(doc[i].Getid() == doctor_id)
+        if(doc[i].getID() == doctor_id)
         {
-            docName = doc[i].Getname();
+            docName = doc[i].getName();
         }
     }
     cout << string(43,'=') << endl;
@@ -125,7 +125,7 @@ void deleteEntry(patientList& pat,doctorList doc)
         cout << "-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-" << endl;
         do
         {
-            cout << "Are you sure you want to delete " << pat[loc].Getid() << " " << pat[loc].Getname() << "? (y/n): ";
+            cout << "Are you sure you want to delete " << pat[loc].getID() << " " << pat[loc].getName() << "? (y/n): ";
             cin >> yn;
             if(yn == 'y')
             {
@@ -152,14 +152,14 @@ void addEntry(patientList& pat, doctorList doc)
     int largest = 0;
     for(unsigned i = 0; i < pat.size(); i++)
     {
-        if(pat[i].Getid() > largest)
+        if(pat[i].getID() > largest)
         {
-            largest = pat[i].Getid();
+            largest = pat[i].getID();
         }
     }
     patient temp;
     temp.add(doc);
-    temp.Setid(largest +1);
+    temp.setID(largest +1);
     pat.push_back(temp);
 }
 // display ALL patients
@@ -226,7 +226,7 @@ void patient::updateEntry(doctorList doc)
                 cin >> doctor_id;
                 for(unsigned i = 0; i < doc.size(); i++)
                 {
-                    if(doctor_id == doc[i].Getid())
+                    if(doctor_id == doc[i].getID())
                     {
                         validDoctor = true;
                     }
@@ -290,15 +290,15 @@ int searchEntries(patientList pat,string thing,doctorList doc)
         switch(choice)
         {
         case 1:
-            if(pat[i].Getid() == num)
+            if(pat[i].getID() == num)
                 return i;
             break;
         case 2:
-            if(pat[i].Getname() == word)
+            if(pat[i].getName() == word)
                 return i;
             break;
         case 3:
-            if(pat[i].Getemail() == word)
+            if(pat[i].getEmail() == word)
                 return i;
             break;
         }

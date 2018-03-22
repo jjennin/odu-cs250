@@ -16,27 +16,27 @@ private:
     std::string meds;
 public:
     record();
-    int Getid()
+    int getID()
     {
         return id;
     }
-    void Setid(int val)
+    void setID(int const& val)
     {
         id = val;
     }
-    int Getpatient_id()
+    int getPatientID()
     {
         return patient_id;
     }
-    void Setpatient_id(int val)
+    void setPatientID(int const& val)
     {
         patient_id = val;
     }
-    int Getdiagnoses_id()
+    int getDiagnosesID()
     {
         return diagnose_id;
     }
-    void Setdiagnoses_id(diagnosesList y) // interactive set diagnoses id
+    void setDiagnosesID(diagnosesList y) // interactive set diagnoses id
     {
         int diagloc = -1;
         while(diagloc == -1)
@@ -45,32 +45,32 @@ public:
         }
         if(diagloc != -3)
         {
-            diagnose_id = y[diagloc].Getid();
+            diagnose_id = y[diagloc].getID();
         }
     }
-    void Setdiagnoses_id(int val)  // simple set diagnoses id
+    void setDiagnosesID(int const& val)  // simple set diagnoses id
     {
         diagnose_id = val;
     }
-    std::string Getmeds()
+    std::string getMeds()
     {
         return meds;
     }
-    void Setmeds() // Interactive set meds for record
+    void setMeds() // Interactive set meds for record
     {
         std::cout << "Please enter new medication: ";
         std::cin.ignore();
         getline(std::cin, meds);
     }
-    void Setmeds(std::string val)  // simple set meds
+    void setMeds(std::string const& val)  // simple set meds
     {
         meds = val;
     }
-    std::string Getnotes()
+    std::string getNotes()
     {
         return notes;
     }
-    void Setnotes() // interactive set notes
+    void setNotes() // interactive set notes
     {
         std::cout << "Please enter new notes: ";
         std::cin.ignore();

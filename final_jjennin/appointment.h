@@ -23,59 +23,59 @@ private:
     std::string prescribed_medication;
 public:
     appointment();
-    int Getid()
+    int getID()
     {
         return id;
     }
-    void Setid(int val)
+    void setID(int const& val)
     {
         id = val;
     }
-    int Getdoctor_id()
+    int getDoctorID()
     {
         return doctor_id;
     }
-    void Setdoctor_id(int val)
+    void setDoctorID(int const& val)
     {
         doctor_id = val;
     }
-    int Getpatient_id()
+    int getPatientID()
     {
         return patient_id;
     }
-    void Setpatient_id(int val)
+    void setPatientID(int const& val)
     {
         patient_id = val;
     }
-    int Getslot_id()
+    int getSlotID()
     {
         return slot_id;
     }
-    void Setslot_id(int val)
+    void setSlotID(int const& val)
     {
         slot_id = val;
     }
-    std::string Getreason()
+    std::string getReason()
     {
         return reason;
     }
-    void Setreason(std::string val)
+    void setReason(std::string const& val)
     {
         reason = val;
     }
-    int Getdiagnosis_id()
+    int getDiagnosisID()
     {
         return diagnosis_id;
     }
-    void Setdiagnosis_id(int val)
+    void setDiagnosisID(int const& val)
     {
         diagnosis_id = val;
     }
-    std::string Getprescribed_medication()
+    std::string getPrescribedMedication()
     {
         return prescribed_medication;
     }
-    void Setprescribed_medication(std::string val)
+    void setPrescribedMedication(std::string const& val)
     {
         prescribed_medication = val;
     }

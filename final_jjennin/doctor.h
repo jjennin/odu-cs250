@@ -16,51 +16,51 @@ private:
     std::string skill;
 public:
     doctor();
-    int Getid()
+    int getID()
     {
         return id;
     }
-    void Setid(int val)
+    void setID(int const& val)
     {
         id = val;
     }
-    std::string Getusername()
+    std::string getUsername()
     {
         return username;
     }
-    void Setusername(std::string val)
+    void setUsername(std::string const& val)
     {
         username = val;
     }
-    std::string Getpassword()
+    std::string getPassword()
     {
         return password;
     }
-    void Setpassword(std::string val)
+    void setPassword(std::string const& val)
     {
         password = val;
     }
-    std::string Getname()
+    std::string getName()
     {
         return name;
     }
-    void Setname(std::string val)
+    void setName(std::string const& val)
     {
         name = val;
     }
-    std::string Getphone()
+    std::string getPhone()
     {
         return phone;
     }
-    void Setphone(std::string val)
+    void setPhone(std::string const& val)
     {
         phone = val;
     }
-    std::string Getskill()
+    std::string getSkill()
     {
         return skill;
     }
-    void Setskill(std::string val)
+    void setSkill(std::string const& val)
     {
         skill = val;
     }

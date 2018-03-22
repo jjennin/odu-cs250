@@ -6,19 +6,19 @@ class lab
 {
 public:
     lab();
-    int Getid()
+    int getID()
     {
         return id;
     }
-    void Setid(int val)
+    void setID(int const& val)
     {
         id = val;
     }
-    int Getdate_id()
+    int getDateID()
     {
         return date_id;
     }
-    void Setdate_id(int val)
+    void setDateID(int const& val)
     {
         date_id = val;
     }
@@ -26,15 +26,15 @@ public:
     {
         return avaliable;
     }
-    void Setavaliable(bool val)
+    void Setavaliable(bool const& val)
     {
         avaliable = val;
     }
-    int Getdoctor_id()
+    int getDoctorID()
     {
         return doctor_id;
     }
-    void Setdoctor_id(int val)
+    void setDoctorID(int const& val)
     {
         doctor_id = val;
     }

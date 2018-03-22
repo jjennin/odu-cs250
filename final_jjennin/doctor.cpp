@@ -90,7 +90,7 @@ void deleteEntry(doctorList& doc, int loc)
     cout << "-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-" << endl;
     do
     {
-        cout << "Are you sure you want to delete " << doc[loc].Getid() << " " << doc[loc].Getname() << "? (y/n): ";
+        cout << "Are you sure you want to delete " << doc[loc].getID() << " " << doc[loc].getName() << "? (y/n): ";
         cin >> yn;
         if(yn == 'y')
         {
@@ -112,14 +112,14 @@ void addEntry(doctorList& doc)
     int largest = 0;
     for(unsigned i = 0; i < doc.size(); i++)
     {
-        if(doc[i].Getid() > largest)
+        if(doc[i].getID() > largest)
         {
-            largest = doc[i].Getid();
+            largest = doc[i].getID();
         }
     }
     doctor temp;
     temp.add();
-    temp.Setid(largest + 1);
+    temp.setID(largest + 1);
     doc.push_back(temp);
 }
 // show ALL doctors
@@ -218,11 +218,11 @@ int searchEntries(doctorList doc, string thing)
         switch(choice)
         {
         case 1:
-            if(doc[i].Getid() == num)
+            if(doc[i].getID() == num)
                 return i;
             break;
         case 2:
-            if(doc[i].Getname() == word)
+            if(doc[i].getName() == word)
                 return i;
             break;
         }

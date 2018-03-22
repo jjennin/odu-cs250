@@ -24,48 +24,48 @@ void appointment::display(doctorList d, patientList p, diagnosesList di, slotLis
     int dloc=0,ploc=0,diloc=0,sloc=0,dtloc=0;
     for(unsigned i = 0; i < d.size(); i++)
     {
-        if(d[i].Getid() == doctor_id)
+        if(d[i].getID() == doctor_id)
         {
             dloc = i;
         }
     }
     for(unsigned i = 0; i < p.size(); i++)
     {
-        if(p[i].Getid() == patient_id)
+        if(p[i].getID() == patient_id)
         {
             ploc = i;
         }
     }
     for(unsigned i = 0; i < di.size(); i++)
     {
-        if(di[i].Getid() == diagnosis_id)
+        if(di[i].getID() == diagnosis_id)
         {
             diloc = i;
         }
     }
     for(unsigned i = 0; i < s.size(); i++)
     {
-        if(s[i].Getid() == slot_id)
+        if(s[i].getID() == slot_id)
         {
             sloc = i;
         }
     }
     for(unsigned i = 0; i < dt.size(); i++)
     {
-        if(dt[i].Getid() == s[sloc].Getdate_id())
+        if(dt[i].getID() == s[sloc].getDateID())
         {
             dtloc = i;
         }
     }
     cout << string(43,'=') << endl;
     cout << " ID: " << id << endl
-         << " Doctor: " << d[dloc].Getname()  << " (ID:" << doctor_id << ")" << endl
-         << " Patient: " << p[ploc].Getname() << " (ID:" << patient_id << ")" << endl
+         << " Doctor: " << d[dloc].getName()  << " (ID:" << doctor_id << ")" << endl
+         << " Patient: " << p[ploc].getName() << " (ID:" << patient_id << ")" << endl
          << " Slot: ";
     dt[dtloc].display();
     cout << " (ID:" << slot_id << ")" << endl
          << " Reason: " << reason << endl
-         << " Diagnosis: " << di[diloc].Getdisease_name() << " (ID:" << diagnosis_id << ")" << endl
+         << " Diagnosis: " << di[diloc].getDiseaseName() << " (ID:" << diagnosis_id << ")" << endl
          << " Medication: " << prescribed_medication << endl;
     cout << string(43,'=') << endl;
 }
@@ -89,7 +89,7 @@ int searchEntries(appointmentList app,string thing)
 
     for(unsigned i = 0; i < app.size(); i++)
     {
-        if(choice == app[i].Getid())
+        if(choice == app[i].getID())
         {
             return i;
         }
@@ -109,16 +109,16 @@ void deleteEntry(appointmentList& app, slotList& slot)
         do
         {
             // double check choice of deletion
-            cout << "Are you sure you want to delete appointment " << app[loc].Getid() << "? (y/n): ";
+            cout << "Are you sure you want to delete appointment " << app[loc].getID() << "? (y/n): ";
             cin >> yn;
             if(yn == 'y')
             {
-                app[loc].Getslot_id();
+                app[loc].getSlotID();
                 for(unsigned i = 0; i < slot.size(); i++)
                 {
-                    if(app[loc].Getslot_id() == slot[i].Getid())
+                    if(app[loc].getSlotID() == slot[i].getID())
                     {
-                        slot[i].Setavailable(true);
+                        slot[i].setAvailable(true);
                     }
                 }
                 app.erase(app.begin()+loc);
@@ -160,7 +160,7 @@ void appointment::updateEntry(patientList pat, slotList& slot, recordList& rec, 
             loc = searchEntries(doc, "search");
             if(loc != -1)
             {
-                doctor_id = doc[loc].Getid();
+                doctor_id = doc[loc].getID();
                 cout << "Doctor ID updated for appointment." << endl;
             }
             break;
@@ -168,7 +168,7 @@ void appointment::updateEntry(patientList pat, slotList& slot, recordList& rec, 
             loc = searchEntries(pat, "search",doc);
             if(loc != -1)
             {
-                patient_id = pat[loc].Getid();
+                patient_id = pat[loc].getID();
                 cout << "Patient ID updated for appointment." << endl;
                 prLoc = searchEntries(rec,patient_id);
                 if(prLoc == -1)
@@ -176,9 +176,9 @@ void appointment::updateEntry(patientList pat, slotList& slot, recordList& rec, 
                     temp = 0;
                     for(unsigned i = 0; i < rec.size(); i++)
                     {
-                        if (rec[i].Getpatient_id() == patient_id)
+                        if (rec[i].getPatientID() == patient_id)
                         {
-                            temp = rec[i].Getid();
+                            temp = rec[i].getID();
                         }
                     }
                     ::add(rec,patient_id,temp);
@@ -189,8 +189,8 @@ void appointment::updateEntry(patientList pat, slotList& slot, recordList& rec, 
             loc = searchEntries(slot, "assign", doctor_id,dt);
             if(loc != -1)
             {
-                slot_id = slot[loc].Getid();
-                slot[loc].Setavailable(false);
+                slot_id = slot[loc].getID();
+                slot[loc].setAvailable(false);
                 cout << "Slot updated for appointment." << endl;
 
             }
@@ -205,27 +205,27 @@ void appointment::updateEntry(patientList pat, slotList& slot, recordList& rec, 
             loc = searchEntries(diag,"assign");
             if(loc != -1)
             {
-                diagnosis_id = diag[loc].Getid();
+                diagnosis_id = diag[loc].getID();
                 cout << "Diagnosis ID updated for appointment." << endl;
                 if(patient_id > 0)
                 {
                     prLoc = searchEntries(rec,patient_id);
                     if(prLoc != -1)
                     {
-                        rec[prLoc].Setdiagnoses_id(diagnosis_id);
+                        rec[prLoc].setDiagnosesID(diagnosis_id);
                     }
                     else
                     {
                         temp = 0;
                         for(unsigned i = 0; i < rec.size(); i++)
                         {
-                            if(rec[i].Getpatient_id() == patient_id)
+                            if(rec[i].getPatientID() == patient_id)
                             {
-                                temp = rec[i].Getid();
+                                temp = rec[i].getID();
                             }
                         }
                         ::add(rec,patient_id,temp);
-                        rec[rec.size()-1].Setdiagnoses_id(diagnosis_id);
+                        rec[rec.size()-1].setDiagnosesID(diagnosis_id);
                     }
                 }
             }
@@ -240,20 +240,20 @@ void appointment::updateEntry(patientList pat, slotList& slot, recordList& rec, 
                 prLoc = searchEntries(rec,patient_id);
                 if(prLoc != -1)
                 {
-                    rec[prLoc].Setmeds(prescribed_medication);
+                    rec[prLoc].setMeds(prescribed_medication);
                 }
                 else
                 {
                     temp = 0;
                     for(unsigned i = 0; i < rec.size(); i++)
                     {
-                        if(rec[i].Getpatient_id() == patient_id)
+                        if(rec[i].getPatientID() == patient_id)
                         {
-                            temp = rec[i].Getid();
+                            temp = rec[i].getID();
                         }
                     }
                     ::add(rec,patient_id,temp);
-                    rec[rec.size()-1].Setmeds(prescribed_medication);
+                    rec[rec.size()-1].setMeds(prescribed_medication);
                 }
             }
             break;
@@ -279,7 +279,7 @@ void appointment::add(patientList pat, slotList& slot, recordList& rec, diagnose
         cout << string(43,'-') << endl;
         cout << "Set a Doctor for the appointment: " << endl;
         loc = searchEntries(doc, "search");
-        doctor_id = doc[loc].Getid();
+        doctor_id = doc[loc].getID();
     }
     loc = -1;
     while(loc == -1)
@@ -287,7 +287,7 @@ void appointment::add(patientList pat, slotList& slot, recordList& rec, diagnose
         cout << string(43,'-') << endl;
         cout << "Set the patient for the appointment: " << endl;
         loc = searchEntries(pat, "search",doc);
-        patient_id = pat[loc].Getid();
+        patient_id = pat[loc].getID();
     }
     loc = -1;
     while(loc == -1)
@@ -295,8 +295,8 @@ void appointment::add(patientList pat, slotList& slot, recordList& rec, diagnose
         cout << string(43,'-') << endl;
         cout << "Set a Slot ID for appointment: " << endl;
         loc = searchEntries(slot, "search", doctor_id,dt);
-        slot_id = slot[loc].Getid();
-        slot[loc].Setavailable(false);
+        slot_id = slot[loc].getID();
+        slot[loc].setAvailable(false);
     }
     loc = -1;
     cout << "Please enter reason for visit: " << endl;
@@ -308,6 +308,6 @@ void add(appointmentList& app, patientList pat, slotList& slot, recordList& rec,
 {
     appointment temp;
     temp.add(pat,slot,rec,diag,doc,dt);
-    temp.Setid(app.size());
+    temp.setID(app.size());
     app.push_back(temp);
 }

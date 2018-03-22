@@ -101,7 +101,7 @@ void menu(appointmentList& app, patientList pat, slotList& slot, recordList& rec
             {
                 for(unsigned i = 0; i < app.size(); i++)
                 {
-                    if(app[i].Getdoctor_id() == doc[loc].Getid())
+                    if(app[i].getDoctorID() == doc[loc].getID())
                     {
                         app[i].display(doc,pat,diag,slot,dt);
                     }
@@ -114,7 +114,7 @@ void menu(appointmentList& app, patientList pat, slotList& slot, recordList& rec
             {
                 for(unsigned i = 0; i < app.size(); i++)
                 {
-                    if(app[i].Getpatient_id() == pat[loc].Getid())
+                    if(app[i].getPatientID() == pat[loc].getID())
                     {
                         app[i].display(doc,pat,diag,slot,dt);
                     }
@@ -244,7 +244,7 @@ void menu(doctorList& doc, appointmentList app)
             {
                 for(unsigned i = 0; i < app.size(); i++)
                 {
-                    if(app[i].Getdoctor_id() == doc[loc].Getid())
+                    if(app[i].getDoctorID() == doc[loc].getID())
                     {
                         denied = true;
                     }
@@ -354,14 +354,14 @@ void menu(recordList& rec, diagnosesList& diag, patientList pat, doctorList doc)
             loc = searchEntries(pat, "search",doc);
             if(loc != -1)
             {
-                secLoc = searchEntries(rec, pat[loc].Getid());
+                secLoc = searchEntries(rec, pat[loc].getID());
                 if(secLoc == -1)
                 {
                     cout << "No existing records" << endl;
                 }
                 else
                 {
-                    cout << "Displaying current records for " << pat[loc].Getname() << ": " << endl;
+                    cout << "Displaying current records for " << pat[loc].getName() << ": " << endl;
                     rec[secLoc].display();
                     cout << endl;
                 }
@@ -371,18 +371,18 @@ void menu(recordList& rec, diagnosesList& diag, patientList pat, doctorList doc)
             loc = searchEntries(pat, "search",doc);
             if(loc != -1)
             {
-                secLoc = searchEntries(rec, pat[loc].Getid());
+                secLoc = searchEntries(rec, pat[loc].getID());
                 if(secLoc == -1)
                 {
-                    add(rec,pat[loc].Getid(),pat[loc].Getrecord_id());
+                    add(rec,pat[loc].getID(),pat[loc].getRecordID());
                     secLoc = rec.size()-1;
                 }
                 cout << endl;
-                cout << "Displaying current records for " << pat[loc].Getname() << ": " << endl;
+                cout << "Displaying current records for " << pat[loc].getName() << ": " << endl;
                 rec[secLoc].display();
                 do
                 {
-                    cout << "What do you want to update for patient " << pat[loc].Getname() << ": " << endl;
+                    cout << "What do you want to update for patient " << pat[loc].getName() << ": " << endl;
                     cout << "1. Notes" << endl
                          << "2. Diagnosis" << endl
                          << "3. Medication" << endl
@@ -391,13 +391,13 @@ void menu(recordList& rec, diagnosesList& diag, patientList pat, doctorList doc)
                     switch(choice2)
                     {
                     case 1:
-                        rec[secLoc].Setnotes();
+                        rec[secLoc].setNotes();
                         break;
                     case 2:
-                        rec[secLoc].Setdiagnoses_id(diag);
+                        rec[secLoc].setDiagnosesID(diag);
                         break;
                     case 3:
-                        rec[secLoc].Setmeds();
+                        rec[secLoc].setMeds();
                         break;
                     case 4:
                         break;
@@ -431,7 +431,7 @@ void searchAndDisplaySlotsByDoctor(slotList slot, doctorList doc, date_timeList 
     cout << "RESULTS:" << endl;
     for(unsigned k = 0; k < slot.size(); k++)
     {
-        if(doc[loc].Getid() == slot[k].Getdoctor_id())
+        if(doc[loc].getID() == slot[k].getDoctorID())
             slot[k].display(dt);
     }
     if(loc == -1)
@@ -450,7 +450,7 @@ void searchAndDisplayPatientsByDoctor(patientList pat, doctorList doc)
     cout << "RESULTS:" << endl;
     for(unsigned k = 0; k < pat.size(); k++)
     {
-        if(doc[loc].Getid() == pat[k].Getdoctor_id())
+        if(doc[loc].getID() == pat[k].getDoctorID())
             pat[k].display(doc);
     }
     if(loc == -1)
@@ -472,25 +472,25 @@ void showBtwnTimes(date_timeList dt, slotList slot)
     cout << "Ending date: " << endl;
     date2.add();
 
-    if(date1.GetAM_PM() == 'P')
+    if(date1.getAMPM() == 'P')
     {
-        date1.Sethour(date1.Gethour() + 12);
+        date1.setHour(date1.getHour() + 12);
     }
-    if(date2.GetAM_PM() == 'P')
+    if(date2.getAMPM() == 'P')
     {
-        date2.Sethour(date2.Gethour() + 12);
+        date2.setHour(date2.getHour() + 12);
     }
     long long entryDate;
-    long long startDate = (((date1.Getyear()+2000) * 100000000LL) + (date1.Getmonth() * 1000000) + (date1.Getday()*10000))+((date1.Gethour()*100)+(date1.Getminute()));
-    long long endDate = (((date2.Getyear()+2000) * 100000000LL) + (date2.Getmonth() * 1000000) + (date2.Getday()*10000))+((date2.Gethour()*100)+(date2.Getminute()));
+    long long startDate = (((date1.getYear()+2000) * 100000000LL) + (date1.getMonth() * 1000000) + (date1.getDay()*10000))+((date1.getHour()*100)+(date1.getMinute()));
+    long long endDate = (((date2.getYear()+2000) * 100000000LL) + (date2.getMonth() * 1000000) + (date2.getDay()*10000))+((date2.getHour()*100)+(date2.getMinute()));
     for(unsigned k = 0; k < dt.size(); k++)
     {
-        dtH = dt[k].Gethour();
-        if(dt[k].GetAM_PM() == 'P')
+        dtH = dt[k].getHour();
+        if(dt[k].getAMPM() == 'P')
         {
             dtH += 12;
         }
-        entryDate = (((dt[k].Getyear()+2000) * 100000000LL) + (dt[k].Getmonth()*1000000) + (dt[k].Getday()*10000))+((dtH*100)+(dt[k].Getminute()));;
+        entryDate = (((dt[k].getYear()+2000) * 100000000LL) + (dt[k].getMonth()*1000000) + (dt[k].getDay()*10000))+((dtH*100)+(dt[k].getMinute()));;
         if (entryDate >= startDate && entryDate <= endDate)
         {
             cout << string(75,'=') << endl;
@@ -511,30 +511,30 @@ void showBtwnTimesApps(appointmentList& app, patientList pat, slotList& slot, re
     cout << "Ending date: " << endl;
     date2.add();
 
-    if(date1.GetAM_PM() == 'P')
+    if(date1.getAMPM() == 'P')
     {
-        date1.Sethour(date1.Gethour() + 12);
+        date1.setHour(date1.getHour() + 12);
     }
-    if(date2.GetAM_PM() == 'P')
+    if(date2.getAMPM() == 'P')
     {
-        date2.Sethour(date2.Gethour() + 12);
+        date2.setHour(date2.getHour() + 12);
     }
     long long entryDate;
-    long long startDate = (((date1.Getyear()+2000) * 100000000LL) + (date1.Getmonth() * 1000000) + (date1.Getday()*10000))+((date1.Gethour()*100)+(date1.Getminute()));
-    long long endDate = (((date2.Getyear()+2000) * 100000000LL) + (date2.Getmonth() * 1000000) + (date2.Getday()*10000))+((date2.Gethour()*100)+(date2.Getminute()));
+    long long startDate = (((date1.getYear()+2000) * 100000000LL) + (date1.getMonth() * 1000000) + (date1.getDay()*10000))+((date1.getHour()*100)+(date1.getMinute()));
+    long long endDate = (((date2.getYear()+2000) * 100000000LL) + (date2.getMonth() * 1000000) + (date2.getDay()*10000))+((date2.getHour()*100)+(date2.getMinute()));
     int nums[dt.size()];
 
     for(unsigned k = 0; k < dt.size(); k++)
     {
-        dtH = dt[k].Gethour();
-        if(dt[k].GetAM_PM() == 'P')
+        dtH = dt[k].getHour();
+        if(dt[k].getAMPM() == 'P')
         {
             dtH += 12;
         }
-        entryDate = (((dt[k].Getyear()+2000) * 100000000LL) + (dt[k].Getmonth()*1000000) + (dt[k].Getday()*10000))+((dtH*100)+(dt[k].Getminute()));;
+        entryDate = (((dt[k].getYear()+2000) * 100000000LL) + (dt[k].getMonth()*1000000) + (dt[k].getDay()*10000))+((dtH*100)+(dt[k].getMinute()));;
         if ((entryDate >= startDate && entryDate <= endDate))
         {
-            nums[k] = dt[k].Getid();
+            nums[k] = dt[k].getID();
         }
 
     }
@@ -543,11 +543,11 @@ void showBtwnTimesApps(appointmentList& app, patientList pat, slotList& slot, re
     {
         for(unsigned j = 0; j < slot.size(); j++)
         {
-            if(slot[j].Getid() == app[i].Getslot_id())
+            if(slot[j].getID() == app[i].getSlotID())
             {
                 for(unsigned k = 0; k < dt.size(); k++)
                 {
-                    if(slot[j].Getdate_id() == nums[k])
+                    if(slot[j].getDateID() == nums[k])
                     {
                         display=true;
                     }

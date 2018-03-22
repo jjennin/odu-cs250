@@ -40,7 +40,7 @@ void slot::add(int newID, doctorList doc, date_timeList dt)
         cin >> date_id;
         for(unsigned i = 0; i < dt.size(); i++)
         {
-            if(date_id == dt[i].Getid())
+            if(date_id == dt[i].getID())
             {
                 validTime = true;
             }
@@ -50,7 +50,7 @@ void slot::add(int newID, doctorList doc, date_timeList dt)
             cout << "Invalid Date ID!" << endl;
             for(unsigned i = 0; i < dt.size(); i++)
             {
-                cout << "ID: " << dt[i].Getid() << " ";
+                cout << "ID: " << dt[i].getID() << " ";
                 dt[i].display();
                 cout << endl;
             }
@@ -63,7 +63,7 @@ void slot::add(int newID, doctorList doc, date_timeList dt)
         cin >> doctor_id;
         for(unsigned i = 0; i < doc.size(); i++)
         {
-            if(doctor_id == doc[i].Getid())
+            if(doctor_id == doc[i].getID())
             {
                 validDoctor = true;
             }
@@ -109,7 +109,7 @@ void slot::updateEntry(doctorList doc, date_timeList dt)
                 cin >> date_id;
                 for(unsigned i = 0; i < dt.size(); i++)
                 {
-                    if(date_id == dt[i].Getid())
+                    if(date_id == dt[i].getID())
                     {
                         validTime = true;
                     }
@@ -119,7 +119,7 @@ void slot::updateEntry(doctorList doc, date_timeList dt)
                     cout << "Invalid Date ID!" << endl;
                     for(unsigned i = 0; i < dt.size(); i++)
                     {
-                        cout << "ID: " << dt[i].Getid() << " ";
+                        cout << "ID: " << dt[i].getID() << " ";
                         dt[i].display();
                         cout << endl;
                     }
@@ -134,7 +134,7 @@ void slot::updateEntry(doctorList doc, date_timeList dt)
                 cin >> doctor_id;
                 for(unsigned i = 0; i < doc.size(); i++)
                 {
-                    if(doctor_id == doc[i].Getid())
+                    if(doctor_id == doc[i].getID())
                     {
                         validDoctor = true;
                     }
@@ -199,7 +199,7 @@ void slot::display(date_timeList dt)
          << " Date ID: " << date_id << "\t";
     for(unsigned i = 0; i < dt.size(); i++)
     {
-        if(date_id == dt[i].Getid())
+        if(date_id == dt[i].getID())
         {
             dt[i].display();
         }
@@ -216,7 +216,7 @@ void slot::display(date_timeList dt)
 // add slot part 1
 void addEntry(slotList& slo, doctorList doc, date_timeList dt)
 {
-    int newID = slo[slo.size()-1].Getid()+1;
+    int newID = slo[slo.size()-1].getID()+1;
     slot temp;
     temp.add(newID,doc,dt);
     slo.push_back(temp);
@@ -234,14 +234,14 @@ void showAllEntries(slotList slot, int a, date_timeList dt)
             temp++;
             break;
         case 1:
-            if(slot[i].Getavailable() == true)
+            if(slot[i].getAvailable() == true)
             {
                 slot[i].display(dt);
                 temp++;
             }
             break;
         case 0:
-            if(slot[i].Getavailable() == false)
+            if(slot[i].getAvailable() == false)
             {
                 slot[i].display(dt);
                 temp++;
@@ -260,7 +260,7 @@ void showAllEntries(slotList slot, int a, int doctorID, date_timeList dt)
     int temp = 0;
     for(unsigned i = 0; i < slot.size(); i++)
     {
-        if(doctorID == slot[i].Getdoctor_id())
+        if(doctorID == slot[i].getDoctorID())
         {
             switch(a)
             {
@@ -269,14 +269,14 @@ void showAllEntries(slotList slot, int a, int doctorID, date_timeList dt)
                 temp++;
                 break;
             case 1:
-                if(slot[i].Getavailable() == true)
+                if(slot[i].getAvailable() == true)
                 {
                     slot[i].display(dt);
                     temp++;
                 }
                 break;
             case 0:
-                if(slot[i].Getavailable() == false)
+                if(slot[i].getAvailable() == false)
                 {
                     slot[i].display(dt);
                     temp++;
@@ -308,7 +308,7 @@ int searchEntries(slotList slot,string thing,date_timeList dt)
         cin >> id;
         for(unsigned i = 0; i < slot.size(); i++)
         {
-            if(choice == slot[i].Getid())
+            if(choice == slot[i].getID())
             {
                 return i;
             }
@@ -342,7 +342,7 @@ int searchEntries(slotList slot,string thing, int doctorID,date_timeList dt)
         cin >> id;
         for(unsigned i = 0; i < slot.size(); i++)
         {
-            if(id == slot[i].Getid() && doctorID == slot[i].Getdoctor_id())
+            if(id == slot[i].getID() && doctorID == slot[i].getDoctorID())
             {
                 return i;
             }
@@ -369,7 +369,7 @@ void deleteEntry(slotList& slot,date_timeList dt)
         cout << "-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-" << endl;
         do
         {
-            cout << "Are you sure you want to delete " << slot[loc].Getid() << "? (y/n): ";
+            cout << "Are you sure you want to delete " << slot[loc].getID() << "? (y/n): ";
             cin >> yn;
             if(yn == 'y')
             {

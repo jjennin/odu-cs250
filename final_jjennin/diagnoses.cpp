@@ -98,11 +98,11 @@ int searchEntries(diagnosesList diag,string thing)
         switch(choice)
         {
         case 1:
-            if(diag[i].Getid() == num)
+            if(diag[i].getID() == num)
                 return i;
             break;
         case 2:
-            if(diag[i].Getdisease_name() == word)
+            if(diag[i].getDiseaseName() == word)
                 return i;
             break;
         }

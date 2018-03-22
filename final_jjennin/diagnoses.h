@@ -11,19 +11,19 @@ private:
     std::string disease_name;
 public:
     diagnoses();
-    int Getid()
+    int getID()
     {
         return id;
     }
-    void Setid(int val)
+    void setID(int const& val)
     {
         id = val;
     }
-    std::string Getdisease_name()
+    std::string getDiseaseName()
     {
         return disease_name;
     }
-    void Setdisease_name(std::string val)
+    void setDiseaseName(std::string const& val)
     {
         disease_name = val;
     }
